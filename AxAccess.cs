@@ -85,7 +85,7 @@ namespace BisConnectivityServices
                 using (OperationContextScope operationContextScope = new OperationContextScope(channel))
                 {
                     // ensure that we do NOT fallback to SSL3
-                    System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+                    System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12| SecurityProtocolType.Tls13;
                     HttpRequestMessageProperty requestMessage = new HttpRequestMessageProperty();
                     requestMessage.Headers[OAuthHelper.OAuthHeader] = oauthHeader;
                     OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = requestMessage;
@@ -127,7 +127,7 @@ namespace BisConnectivityServices
             using (OperationContextScope operationContextScope = new OperationContextScope(channel))
             {
                 // ensure that we do NOT fallback to SSL3
-                System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+                System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12| SecurityProtocolType.Tls13;
 
                 HttpRequestMessageProperty requestMessage = new HttpRequestMessageProperty();
                 requestMessage.Headers[OAuthHelper.OAuthHeader] = oauthHeader;
