@@ -16,6 +16,7 @@ namespace BisConnectivityServices
         /// <returns>The authentication header for the Web API call.</returns>
         public static string GetAuthenticationHeader(ClientConfiguration clientConfig, bool useWebAppAuthentication = false)
         {
+            System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12| SecurityProtocolType.Tls13;
             string aadTenant = clientConfig.ActiveDirectoryTenant;
             string aadClientAppId = clientConfig.ActiveDirectoryClientAppId;
             string aadResource = clientConfig.ActiveDirectoryResource;
